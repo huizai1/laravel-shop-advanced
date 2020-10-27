@@ -42,4 +42,11 @@ class OrderRequest extends Request
             'items.*.amount' => ['required', 'integer', 'min:1'],
         ];
     }
+
+    public function attributes()
+    {
+        return [
+            'items' => '购物车'
+        ];
+    }
 }
