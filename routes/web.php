@@ -26,6 +26,7 @@ Route::group(['middleware' => ['auth', 'verified']], function() {
 
     Route::post('orders', 'OrdersController@store')->name('orders.store');
     Route::get('orders', 'OrdersController@index')->name('orders.index');
+    Route::get('orders/{order}', 'OrdersController@show')->name('orders.show');
 });
 
 // 这个路由和上面 'products/favorites' 路由有冲突，所以放到下面
