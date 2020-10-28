@@ -119,10 +119,19 @@
         amount: $('.cart_amount input').val(),
       })
         .then(function () { // 请求成功执行此回调
-          swal('加入购物车成功', '', 'success')
-            .then(function() {
-              location.href = '{{ route('cart.index') }}';
-            });
+          swal({
+            title: "加入购物车成功",
+            icon: "success",
+            buttons: ['取消', '进入'],
+            dangerMode: true,
+          })
+          .then(function(willCancel) {
+            // 用户点击 进入 按钮，willCancel 的值就会是 true，否则为 false
+            if (!willCancel) {
+              return;
+            }
+            location.href = '{{ route('cart.index') }}';
+          });
         }, function (error) { // 请求失败执行此回调
           if (error.response.status === 401) {
 
