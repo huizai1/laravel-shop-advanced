@@ -27,7 +27,12 @@ Route::group(['middleware' => ['auth', 'verified']], function() {
     Route::post('orders', 'OrdersController@store')->name('orders.store');
     Route::get('orders', 'OrdersController@index')->name('orders.index');
     Route::get('orders/{order}', 'OrdersController@show')->name('orders.show');
+
+    Route::get('payment/{order}/alipay', 'PaymentController@payByAlipay')->name('payment.alipay');
+    Route::get('payment/alipay/return', 'PaymentController@alipayReturn')->name('payment.alipay.return');
 });
 
 // 这个路由和上面 'products/favorites' 路由有冲突，所以放到下面
 Route::get('products/{product}', 'ProductsController@show')->name('products.show');
+
+Route::post('payment/alipay/notify', 'PaymentController@alipayNotify')->name('payment.alipay.notify');
