@@ -32,7 +32,9 @@ Route::group(['middleware' => ['auth', 'verified']], function() {
     Route::get('payment/alipay/return', 'PaymentController@alipayReturn')->name('payment.alipay.return');
     Route::get('payment/{order}/wechat', 'PaymentController@payByWechat')->name('payment.wechat');
 
-    Route::Post('orders/{order}/received', 'OrdersController@received')->name('orders.received');
+    Route::post('orders/{order}/received', 'OrdersController@received')->name('orders.received');
+    Route::get('orders/{order}/review', 'OrdersController@review')->name('orders.review.show');
+    Route::post('orders/{order}/review', 'OrdersController@sendReview')->name('orders.review.store');
 });
 
 // 这个路由和上面 'products/favorites' 路由有冲突，所以放到下面
