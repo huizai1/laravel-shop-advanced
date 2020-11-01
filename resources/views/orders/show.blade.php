@@ -89,6 +89,13 @@
               未支付
             @endif
           </div>
+        </div>
+        @if(isset($order->extra['refund_disagree_reason']))
+        <div>
+          <span>拒绝退款理由：</span>
+          <div class="value">{{ $order->extra['refund_disagree_reason'] }}</div>
+        </div>
+        @endif
         <!-- 支付按钮开始 -->
         @if(!$order->paid_at && !$order->closed)
         <div class="payment-buttons">
@@ -111,7 +118,6 @@
           <button class="btn btn-sm btn-danger" id="btn-apply-refund">申请退款</button>
         </div>
         @endif
-        </div>
       </div>
     </div>
   </div>
