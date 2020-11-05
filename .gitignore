@@ -14,4 +14,5 @@ yarn-error.log
 /public/js
 /public/css
 /public/fonts
-/resources/wechat_pay
+/resources/wechat_pay/apiclient_cert.pem
+/resources/wechat_pay/apiclient_key.pem
