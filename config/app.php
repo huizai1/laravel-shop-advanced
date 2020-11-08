@@ -232,4 +232,6 @@ return [
 
     // 订单存活时间，订单关闭时间，单位是秒
     'order_ttl' => 1800,
+
+    'ngrok_url' => env('NGROK_URL'),
 ];
