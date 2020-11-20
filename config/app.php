@@ -244,5 +244,5 @@ return [
     'installment_fine_rate' => 0.05, // 逾期日息 0.05%
 
     // 秒杀订单自动关闭时间，单位是秒
-    'seckill_order_ttl' => 600,
+    'seckill_order_ttl' => 60,
 ];
